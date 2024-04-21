@@ -1,0 +1,693 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('./Raleway/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('./Raleway/Raleway-Italic-VariableFont_wght.ttf') format('truetype');
+    font-style: italic;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    margin: 0px;
+    font-family: 'Raleway';
+}
+
+.basketSection {
+    width: 33vw;
+    height: 100vh;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    right: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    gap: 0px;
+    background-color: orange;
+    height: 64px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+    box-sizing: border-box;
+}
+
+.footer {
+    background-color: rgb(239,237,234);
+    padding: 32px 16px 32px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.headerAdress {
+    margin-bottom: 16px;
+    border-bottom: 4px solid white;
+    padding-bottom: 4px;
+    font-weight: bold;
+    color: white;
+}
+
+.headerLogo {
+    height:40px;
+    object-fit: cover;
+}
+
+.languageButton {
+    width: 24px;
+    border-radius: 200px;
+    border: 4px solid white;
+}
+
+.header .burgerMenu {
+    width: 40px;
+}
+
+.headerButton {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.topImg {
+    background-image: url(img/headerPizza.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 240px;
+}
+
+.restaurantLogo {
+    width: 120px;
+    border-radius: 200px;
+    border: 4px solid white;
+    padding: 4px;
+    margin-top: -64px;
+    position: absolute;
+}
+
+.titleSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleReviewsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 32px 32px 64px;
+}
+
+.reviews {
+    text-decoration: none;
+    font-size: 16px;
+    color: orange;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.title {
+    margin: 0px;
+}
+
+.stars {
+    height: 40px;
+}
+
+.titleButtonContainer {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 32px 24px 32px 24px;
+}
+
+.titleIcon {
+    height: 20px;
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 1px;
+}
+
+.titleIcon:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    cursor: pointer;
+}
+
+.titleIcon:active {
+    box-shadow: rgba(185, 185, 185, 0.25) 0px 30px 60px -12px inset;   
+}
+
+.restaurantLogoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+.searchIcon {
+    height: 24px;
+}
+
+.navContainer {
+    display: flex;
+    padding: 8px 32px 8px 64px;    
+    background-color: rgb(247,246,241);
+    align-items: center;
+    gap: 24px;
+    font-size: 16px;
+}
+
+.navContainer h3 {
+    color: orange;
+}
+
+.navLinks {
+    gap: 24px;
+    display: flex;
+    padding: 16px;
+
+}
+
+.navLinks a {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(92,104,103);
+}
+
+.categoryTitleContainer {
+    background-color: rgb(247,246,241);
+    padding: 8px 32px 8px 32px;
+    border-radius: 1px;
+}
+
+.menuSection {
+    padding: 16px 32px 16px 32px;
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navLinks a:hover {
+    color: orange;
+}
+
+.navLinks .orangeBold {
+    color: orange;
+    font-weight: bold;
+}
+
+.basketAndMain {
+    display: flex;
+}
+
+#mainBoard {
+    width: 100%;
+}
+
+h3 {
+    color: rgb(39, 74, 69);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.mealContainer {
+    width: 100%;
+    padding: 24px;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 1px;
+    box-sizing: border-box;
+}
+
+.mealContainer:hover {
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.mealPrice {
+    color: orange;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.addButton {
+    width: 24px;
+    height: 24px;
+    border-radius: 1px;
+    padding: 8px;
+    object-fit: cover;
+    margin: -24px;    
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;    
+
+}
+
+.mealTitleAndButton {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mealsTitle, .mealPrice {
+    margin: 0px;
+}
+
+.addButton:hover {
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    cursor: pointer;
+}
+
+.addButton:active {
+    box-shadow: rgba(185, 185, 185, 0.25) 0px 30px 60px -12px inset;   
+}
+
+.categoryPicture {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1px;
+    margin-top: 8px;
+}
+
+#menuContent {
+    padding: 16px 32px 16px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mealContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bagImg {
+    width: 80px;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+#basketFiller {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.plusminus {
+    width: 10px;
+    height: 10px;
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.36) 0px 1px 4px;    
+    font-size: 28px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.costsContainer {
+    border-top: 1px solid rgb(216, 216, 216);
+    border-bottom: 1px solid rgb(216, 216, 216);
+    margin-top: 24px;
+}
+
+.addedMealContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.spaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sumTable {
+    width: 100%;
+    padding: 16px 0px 8px 0px;
+}
+
+.trashAndPenIcon {
+    width: 16px;
+    height: 16px;
+    padding: 8px;
+    border-radius: 4px;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.36) 0px 1px 4px;    
+}
+
+.basketTitle {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.basketOptionsAndPriceContainer {
+    display: flex;
+}
+
+.basketOptionsContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.basketMealPrice {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 64px;
+}
+
+.basketAmounts {
+    width: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.basketMeals {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    display: flex;
+    font-size: 14px; /* bei display 1500 fontsize 1 vw */
+}
+
+
+.basketAmountsAndMealsContainer {
+    display: flex;
+}
+
+.plusminus:hover, .trashAndPenIcon:hover {
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    cursor: pointer;
+}
+
+.plusminus:active, .trashAndPenIcon:active {
+    box-shadow: rgba(185, 185, 185, 0.25) 0px 30px 60px -12px inset;
+}
+
+.subtotal, .deliveryCost {
+    font-weight: 700;
+}
+
+.total {
+    color: green;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.margin-bottom {
+    margin-bottom: 8px;
+}
+
+.blankButton {
+    padding: 16px;
+    width: 80%;
+    background-color: rgb(128, 128, 128);
+    color: white;
+    border: none;
+    border-radius: 1px;
+    font-size: 16px;
+}
+
+#orderButton {
+    padding: 16px;
+    width: 80%;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 1px;
+    font-size: 16px;
+}
+
+#minimumCondition {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 32px;
+}
+
+#orderButton:hover {
+    cursor: pointer;
+    background-color: rgb(255, 180, 40);
+}
+
+#orderButton:active {
+    box-shadow: rgb(208, 111, 0) 0px 30px 60px -12px inset;
+}
+
+
+/* css tools */
+/* css tools */
+/* css tools */
+
+.d-none{
+    display: none;
+}
+
+.o-hidden {
+    overflow: hidden;
+}
+
+.v-hidden {
+    visibility: hidden;
+}
+
+.z-1 {
+    position: absolute;
+    z-index: -1;
+}
+
+/* css tools */
+/* css tools */
+/* css tools */
+
+
+/* Smartphone  */
+@media (max-width:480px) {
+    .header {
+        padding: 8px 16px 8px 16px;
+        gap: 8px;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        right: 0;
+    }
+
+    .headerAdress {
+        display: none;
+    }
+
+    .topImg {
+        height: 200px;
+    }
+
+    .restaurantLogo {
+        width: 112px;
+    }
+
+    .title {
+        display: none;
+    }
+
+    #menuContent{
+        padding: 16px;
+    }
+
+    .navContainer {
+        padding: 8px 16px 8px 16px;
+    }
+
+    .titleSection {
+        margin-top: 56px;
+    }
+
+    .titleReviewsContainer {
+        padding: 16px;
+    }
+
+    .titleButtonContainer {
+        padding: 16px 16px 16px 0px;
+    }
+
+    .navLinks {
+        gap: 10px;
+    }
+
+    .navContainer {
+        gap: 0px;
+    }
+
+    .navLinks {
+        align-items: center;
+   }
+   
+   .basketButton {
+        width: 40px;
+   }
+
+   .headerButton {
+        gap: 8px;
+        position: relative;
+   }
+
+   .languageButton {
+    display: none;
+   }
+
+   .basketSection {
+    position: fixed;
+    z-index: 2;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+   }
+
+   .addedMealContainer{
+        flex-direction: column;
+        width: 100%;
+        align-items: start;
+   }
+
+   .basketOptionsAndPriceContainer {
+    width: 100%;
+    justify-content: space-between;
+   }
+
+   .basketMeals {
+    width: 240px;
+   }
+
+   .basketMealPrice{
+    margin: 0px;
+    align-items: start;
+    display: flex;
+   }
+
+   .basketAmountsAndMealsContainer {
+    margin-top: 24px;
+   }
+
+   #basket {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+   }
+
+   #minimumCondition {
+    padding: 8px 8px 24px 8px;
+   }
+
+   .closeBasketButton{
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.36) 0px 1px 4px;    
+    height: 32px;
+    width: 32px;
+    object-fit: cover;
+    opacity: 0.8;
+    border-radius: 200px;
+    position: absolute;
+    right: 16px;
+    top: 24px;
+    z-index: 3;
+   }
+
+   .basketCount {
+    font-size: 16px;
+    background-color: rgb(205, 33, 33);
+    color: white;
+    position: absolute;
+    border: 2px solid white;
+    top: 0;
+    right: 0;
+    border-radius: 200px;
+    padding: 2px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin-right: -8px;
+    min-width: 24px;
+    min-height: 24px;
+    z-index: 2;
+   }
+
+   #basketFiller {
+    margin-top: 0px;
+   }
+
+/* css tools */
+/* css tools */
+/* css tools */
+
+.d-none{
+    display: none;
+}
+
+.o-hidden {
+    overflow: hidden;
+}
+
+.v-hidden {
+    visibility: hidden;
+}
+
+.z-1 {
+    position: absolute;
+    z-index: -1;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* css tools */
+/* css tools */
+/* css tools */
+}
+
+/* Tablets */
+@media screen and (min-width: 481px) and (max-width:768px){
+
+}
+
+/* Laptops */
+@media screen and (min-width: 769px) and (max-width: 1024px){
+
+}
+
+/* Laptops */
+@media (min-width: 1390px ) {
+    .closeBasketButton {
+        display: none;
+    }
+}
