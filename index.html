@@ -9,74 +9,78 @@
 </head>
 <body onload="includeHTML(); renderMenus(); renderBasket();">
 <!-- Header -->
-    <div id="header" w3-include-html="templates/header.html"></div>
+    <div id="header" class="header" w3-include-html="templates/header.html">
+    </div>
 
     <div class="basketAndMain">
         <div id="mainBoard">
-    <!-- Top Section -->
-        <section id="topSection">
-            <div class="topImg">
-            </div>
+        <!-- Top Section -->
+            <section id="topSection">
+                <div class="topImg">
+                </div>
 
-            <div class="restaurantLogoContainer">
-                <img class="restaurantLogo pointer" src="img/Michalinos.png" alt="Restaurant Logo">
-            </div>
+                <div class="restaurantLogoContainer">
+                    <img class="restaurantLogo pointer" src="img/Michalinos.png" alt="Restaurant Logo">
+                </div>
 
-            <div class="titleSection">
-                <div class="titleReviewsContainer">            
-                    <h1 class="title">Michalino's Pizzaria</h1>
-                    <div class="reviews ">
-                        <img class="stars pointer" src="img/stars.png" alt="stars">
-                        <a class="pointer">(999) Reviews</a>
+                <div class="titleSection">
+                    <div class="titleReviewsContainer">            
+                        <h1 class="title">Michalino's Pizzaria</h1>
+                        <div class="reviews ">
+                            <img class="stars pointer" src="img/stars.png" alt="stars">
+                            <a class="pointer">(999) Reviews</a>
+                        </div>
+                    </div>
+
+                    <div class="titleButtonContainer pointer">
+                        <img class="titleIcon" src="img/infoIcon.png">
+                        <img class="titleIcon" src="img/likeIcon.png">
                     </div>
                 </div>
 
-                <div class="titleButtonContainer pointer">
-                    <img class="titleIcon" src="img/infoIcon.png">
-                    <img class="titleIcon" src="img/likeIcon.png">
+                <div class="navContainer">
+                    <img class="searchIcon pointer" src="img/search-icon.png">
+                    <div class="navLinks">
+                        <a class="orangeBold" href="#category0">Beliebte Gerichte</a>
+                        <a href="#categoryImg1">Pizza</a>
+                        <a href="#categoryImg2">Salat</a>
+                        <a href="#categoryImg3">Piccolinis</a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="menuContent">
+
+            </section>
+        </div>
+        
+    <!-- Basket -->
+        <section id="basketSection" class="basketSection z-1 v-hidden flex-center">
+            <div class="basketTitleAndCloseButtonContainer">
+                <h3 class="basketTitle">Warenkorb</h3>
+                <img onclick="closeBasketForMobile()" src="img/closeButton.png" class="closeBasketButton" alt="close basket button">
+            </div>
+
+            <div id="basket">
+                <div id="basketFiller">
+                    <img class="bagImg" src="img/bag.png" alt="Basket">
+                    <h2 id="basketFillerTitle">Warenkorb</h2>
+                    <p>Fuege Leckereien deinem Warenkorb hinzu, indem du auf das Plussymbol der Gerichte im Menue klickst.</p>
                 </div>
             </div>
 
-            <div class="navContainer">
-                <img class="searchIcon pointer" src="img/search-icon.png">
-                <div class="navLinks">
-                    <a class="orangeBold" href="#category0">Beliebte Gerichte</a>
-                    <a href="#categoryImg1">Pizza</a>
-                    <a href="#categoryImg2">Salat</a>
-                    <a href="#categoryImg3">Piccolinis</a>
-                </div>
+            <div id="costsContainer" class="costsContainer">
+
             </div>
-        </section>
-
-        <section id="menuContent">
-
         </section>
     </div>
-    
-<!-- Basket -->
-    <section id="basketSection" class="basketSection z-1 v-hidden flex-center">
-        <div class="basketTitleAndCloseButtonContainer">
-            <h3 class="basketTitle">Warenkorb</h3>
-            <img onclick="closeBasketForMobile()" src="img/closeButton.png" class="closeBasketButton" alt="close basket button">
-        </div>
 
-        <div id="basket">
-            <div id="basketFiller">
-                <img class="bagImg" src="img/bag.png" alt="Basket">
-                <h2 id="basketFillerTitle">Warenkorb</h2>
-                <p>Fuege Leckereien deinem Warenkorb hinzu, indem du auf das Plussymbol der Gerichte im Menue klickst.</p>
-            </div>
-        </div>
+    <div id="greyBackground" onclick="closeBasketForMobile()" class="d-none">
 
-        <div id="costsContainer" class="costsContainer">
-            
-        </div>
-
-    </section>
-
-</div>
+    </div>
 
 <!-- Footer -->
-    <div id="footer" w3-include-html="templates/footer.html"></div>
+    <div id="footer" w3-include-html="templates/footer.html">
+    </div>
 </body>
 </html>

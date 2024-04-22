@@ -66,7 +66,7 @@ let menus = [
       "mit Salami, Sardellen, Kapern und Peperoni",
       "mit Mozzarella, Spinat, Broccoli und Knoblauch",
     ],
-    prices: [12.5, 13.89, 11.0],
+    prices: [12.50, 13.89, 11],
   },
   {
     image: ['img/salad.jpg'],
@@ -77,7 +77,7 @@ let menus = [
       "mit Mais, Schinken, Hähnchenfilet und Ananas",
       "Rucola mit Cherry-Tomaten, italienischem Hartkäse, Hähnchenfiletstücken, Parmaschinken und roten Zwiebeln, ohne Gurken und Möhren",
     ],
-    prices: [9, 8.5, 10.0],
+    prices: [9, 8.50, 10],
   },
   {
     image: ['img/piccolini.jpg'],
@@ -85,14 +85,14 @@ let menus = [
     meals: [
       "Piccolini Quark-Pizza",
       "Piccolini Kicher-Pilze",
-      "Kremig-Braune Kotbatzen",
+      "Schlemmerknollen",
     ],
     descriptions: [
       "10 Piccolini mit quark, frischen Tomaten, Knoblauch und frischem Basilikum",
       "10 Piccolini aus Kichererbsenmehl mit Champinions und gewuerfelten Tomaten und Paprika",
-      "10 Kotbatzen serviert mit einer prise Furz, frisch vom Koch",
+      "Gefuellte Pizzabroetchen: Lachs, Kaese, einem zarter Hauch von Tomatenmark, Meerrettich und verziert mit Rosmarin, Thymian, Petersilie und Knoblauch - Die Broetchen kommen ueberbacken mit Sonnenblumenkerne  und Monkoerner.",
     ],
-    prices: [12.5, 13.5, 15.5],
+    prices: [12.5, 13.50, 15.50],
   },
 ];
 
@@ -143,6 +143,7 @@ function renderMenus() {
 
 
 function renderBasket() {
+  visibleBasketSectionForLargeScreen();
   renderBasketStandardHTML();
   let basket = document.getElementById('basket');
   let costsContainer = document.getElementById('costsContainer');
@@ -203,11 +204,18 @@ function renderBasket() {
 }
 
 
+function visibleBasketSectionForLargeScreen() {
+  if (window.innerWidth >= 1390) {
+    let basketSection = document.getElementById('basketSection');
+    basketSection.classList.remove('z-1', 'v-hidden');
+  }
+}
+
+
 function renderBasketStandardHTML() {
   let basketSection = document.getElementById('basketSection');
 
   basketSection.innerHTML = /*html*/`
-  <section id="basketSection" class="basketSection">
   <div class="basketTitleAndCloseButtonContainer">
       <h3 class="basketTitle">Warenkorb</h3>
       <img onclick="closeBasketForMobile()" src="img/closeButton.png" class="closeBasketButton" alt="close basket button">
@@ -257,22 +265,36 @@ function headerBasketCount() {
     total += parseFloat(amounts[c]); 
   }
 
+  if (window.innerWidth <= 1390) {
+
   basketCount.innerHTML = `${total}`;
+  } else {
+    basketCount.classList.add ('d-none');
+    }
 
   if (basketMeals.length === 0) {
     basketCount.classList.add('v-hidden');
   } else {
-    basketCount.classList.remove('v-hidden');
-  }
+      basketCount.classList.remove('v-hidden');
+      }
+
 }
 
 
 function openBasketForMobile() {
   let basketSection = document.getElementById('basketSection');
   let mainBoard = document.getElementById('mainBoard');
+  let greyBackground = document.getElementById('greyBackground');
 
   basketSection.classList.remove('z-1', 'v-hidden');
-  mainBoard.classList.add('d-none');
+
+  if ( window.innerWidth >= 481 && window.innerWidth <= 1389) {
+    greyBackground.classList.remove('d-none');
+  } else if (greyBackground) {
+      greyBackground.classList.add('d-none');
+    } else{ 
+        mainBoard.classList.add('d-none');
+      }
 
   renderBasket();
 }
@@ -281,9 +303,15 @@ function openBasketForMobile() {
 function closeBasketForMobile() {
   let basketSection = document.getElementById('basketSection');
   let mainBoard = document.getElementById('mainBoard');
+  let greyBackground = document.getElementById('greyBackground');
 
   basketSection.classList.add('z-1', 'v-hidden');
-  mainBoard.classList.remove('d-none');
+
+  if ( window.innerWidth >= 481 && window.innerWidth <= 1389) {
+    greyBackground.classList.add('d-none');
+  } else { 
+    mainBoard.classList.remove('d-none');
+    }
 
   headerBasketCount();
 }
@@ -309,20 +337,28 @@ function orderConfirmation() {
   }
   else {
     alert("Vielen Dank fuer deine Bestellung! Dein Gericht befindet sich nun in der Zubereitung und wird dir so schnell wie moeglich an deine angegebene Adresse geliefert.");
-  }
-  // add EMPTY BASKET After Order
-  // add EMPTY BASKET After Order
-  // add EMPTY BASKET After Order
+    amounts = [];
+    basketMeals = [];
+    basketPrices = [];
+    singleMealPrice = [];
+    save();
+    renderBasket();
+    document.getElementById('basketSection').innerHTML = 
+    `<h2>Vielen Dank!</h2>
+    <p>Vielen Dank fuer deine Bestellung! Dein Gericht befindet sich nun in der Zubereitung und wird dir so schnell wie moeglich an deine angegebene Adresse geliefert. Du erhaelst in Kuerze eine Bestaegigungs-Email von uns in deinem Postfach.</p>`;
+    }
 }
 
 
 function minusOneSameItem(b) {
-  if(amounts[b] > 0) {
+  if(amounts[b] > 1) {
   amounts[b]--;
   basketPrices[b] -= singleMealPrice[b];
   basketPrices[b] = parseFloat(basketPrices[b].toFixed(2));
-  renderBasket();
-  }
+  } else if (amounts[b] == 1) {
+    deleteItem(b);
+    }
+    renderBasket();
 }
 
 
@@ -370,16 +406,14 @@ function addToBasket(i, m) {
       amounts[basketIndex]++;
       basketPrices[basketIndex] += menu['prices'][m];
       basketPrices[basketIndex] = parseFloat(basketPrices[basketIndex].toFixed(2));
-  }
-
+    }
   save();
-  load();
 
   if (window.innerWidth >= 1390) {
     renderBasket();
   } else {
     headerBasketCount();
-  }
+    }
 }
 
 
