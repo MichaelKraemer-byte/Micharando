@@ -18,6 +18,10 @@ body {
     font-family: 'Raleway';
 }
 
+#mainBoard {
+    width: 100%;
+}
+
 .basketSection {
     width: 33vw;
     height: 100vh;
@@ -30,6 +34,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     padding-top: 32px;
+    top: 0;
+    right: 0;
 }
 
 .header {
@@ -163,14 +169,52 @@ body {
 
 .searchIcon {
     height: 24px;
+    border: 0px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0px;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;    
+    border-radius: 2px;
+    object-fit: cover;
+    background-color: white;
+}
+
+.searchIcon:hover {
+    box-shadow: rgba(0, 0, 0, 0.32) 0px 1px 4px;    
+}
+
+.searchIcon:active {
+    box-shadow: rgba(0, 0, 0, 0.32) 0px 1px 4px;    
+    box-shadow: rgba(185, 185, 185, 0.25) 0px 30px 60px -12px inset;   
+}
+
+#searchButton {
+    padding: 0px;
+    background: none;
+    border: 0px;
+}
+
+#search {
+    height: 28px;
+    font-size: 16px;
+    padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 2px;
+}
+
+#search:focus {
+    outline: 1.2px solid rgba(0, 0, 0, 0.32);
 }
 
 .navContainer {
     display: flex;
+    flex-direction: column;
     padding: 8px 32px 8px 64px;    
     background-color: rgb(247,246,241);
     align-items: center;
-    gap: 24px;
+    gap: 16px;
     font-size: 16px;
 }
 
@@ -189,6 +233,8 @@ body {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(92,104,103);
+    padding: 8px 16px 8px 16px;
+    border-radius: 2px;
 }
 
 .categoryTitleContainer {
@@ -206,6 +252,7 @@ body {
 
 .navLinks a:hover {
     color: orange;
+    box-shadow: rgb(255, 128, 0) 0px 1px 4px;
 }
 
 .navLinks .orangeBold {
@@ -248,7 +295,6 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     object-fit: cover;
     margin: -24px;    
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;    
-
 }
 
 .mealTitleAndButton {
@@ -478,6 +524,10 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     display: none;
 }
 
+.d-block {
+    display: block;
+}
+
 .o-hidden {
     overflow: hidden;
 }
@@ -491,6 +541,11 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     z-index: -1;
 }
 
+.hide {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+}
 
 .flex-center{
     display: flex;
@@ -499,10 +554,18 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     text-align: center;
 }
 
-/* css tools */
-/* css tools */
-/* css tools */
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding-top: 16px;
+    gap: 8px;
+}
 
+/* css tools */
+/* css tools */
+/* css tools */
 
 /* Smartphone/ Tablets  */
 @media (max-width:1390px){
@@ -556,10 +619,6 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         gap: 10px;
     }
 
-    .navContainer {
-        gap: 0px;
-    }
-
     .navLinks {
         align-items: center;
    }
@@ -584,7 +643,7 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
    .basketSection {
     position: fixed;
     z-index: 3;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
    }
 
@@ -665,12 +724,29 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin-bottom: 0px;
    }
 
+/* Smartphones  */
+@media (max-width:481px) {
+    .navLinks a {
+        padding: 8px;
+    }
+
+    .navLinks{
+        padding: 0px;
+        padding-bottom: 8px;
+        gap: 0px;
+    }
+}
+
 /* css tools */
 /* css tools */
 /* css tools */
 
 .d-none{
     display: none;
+}
+
+.d-block {
+    display: block;
 }
 
 .o-hidden {
@@ -696,10 +772,6 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 .costsContainer {
     margin-bottom: 0px;
     padding-bottom: 0px;
-}
-
-.searchIcon {
-    display: none;
 }
 
 /* css tools */

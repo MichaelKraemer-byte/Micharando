@@ -39,7 +39,10 @@
                 </div>
 
                 <div class="navContainer">
-                    <img class="searchIcon pointer" src="img/search-icon.png">
+                    <form onsubmit="filterMeals(); renderMealsIfNoInput();" class="searchContainer">
+                        <button id="searchButton"><img class="searchIcon pointer" src="img/search-icon.png"></button>
+                        <input onkeydown="filterMeals(); renderMealsIfNoInput();" id="search" type="text" required placeholder="Search for a meal..."></input>
+                    </form>
                     <div class="navLinks">
                         <a class="orangeBold" href="#category0">Beliebte Gerichte</a>
                         <a href="#categoryImg1">Pizza</a>

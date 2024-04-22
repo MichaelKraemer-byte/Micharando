@@ -103,6 +103,39 @@ let amounts = [];
 let singleMealPrice = [];
 
 
+function filterMeals() {
+  let search = document.getElementById('search').value.toLowerCase();
+
+  for (let i = 0; i < menus.length; i++) {
+    let menu = menus[i];
+    let category = document.getElementById(`category${i}`);
+    let categoryImg = document.getElementById(`categoryImg${i}`);
+
+    for (let m = 0; m < menu['meals'].length; m++) {
+      let mealName = menu['meals'][m].toLowerCase();
+      let mealContainerId = `meal_${i}_${m}`;
+      let mealContainer = document.getElementById(mealContainerId);
+
+        if (mealName.includes(search)) {
+          mealContainer.classList.add('d-block');
+        } else {
+          mealContainer.classList.add('d-none');
+          category.classList.add('d-none');
+          categoryImg.classList.add('d-none');
+        }
+    }
+  }
+}
+
+
+function renderMealsIfNoInput() {
+  let search = document.getElementById('search').value.toLowerCase();
+
+  if( search == '') {
+    renderMenus();
+  }
+}
+
 
 function renderMenus() {
   let menuContent = document.getElementById("menuContent");
@@ -127,7 +160,7 @@ function renderMenus() {
   for (let m = 0; m < menu['meals'].length; m++) {
     let mealContent = document.getElementById(`mealContent${i}`);
     mealContent.innerHTML += /*html*/`
-        <div class="mealContainer">
+        <div id="meal_${i}_${m}" class="mealContainer">
             <div class="mealTitleAndButton">
                 <h3 class="mealsTitle">${menu["meals"][m]}</h3>
                 <img onclick="addToBasket(${i}, ${m})" class="addButton" src="img/plus.png" alt="Add to basket button">
@@ -292,9 +325,11 @@ function openBasketForMobile() {
     greyBackground.classList.remove('d-none');
   } else if (greyBackground) {
       greyBackground.classList.add('d-none');
-    } else{ 
+    } 
+    
+  if (window.innerWidth <= 480) { 
         mainBoard.classList.add('d-none');
-      }
+  }
 
   renderBasket();
 }
@@ -309,7 +344,7 @@ function closeBasketForMobile() {
 
   if ( window.innerWidth >= 481 && window.innerWidth <= 1389) {
     greyBackground.classList.add('d-none');
-  } else { 
+  } else if (window.innerWidth <= 480) { 
     mainBoard.classList.remove('d-none');
     }
 
