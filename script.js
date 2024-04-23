@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+function handleResize() {
+  if (window.innerWidth <= 1390) {
+      location.reload();
+  }
+}
+
+
+window.addEventListener('resize', handleResize);
+
+
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
@@ -131,7 +141,7 @@ function filterMeals() {
 function renderMealsIfNoInput() {
   let search = document.getElementById('search').value.toLowerCase();
 
-  if( search == '') {
+  if(!search) {
     renderMenus();
   }
 }

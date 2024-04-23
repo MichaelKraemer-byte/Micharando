@@ -39,9 +39,9 @@
                 </div>
 
                 <div class="navContainer">
-                    <form onsubmit="filterMeals(); renderMealsIfNoInput();" class="searchContainer">
+                    <form onsubmit="filterMeals()" class="searchContainer">
                         <button id="searchButton"><img class="searchIcon pointer" src="img/search-icon.png"></button>
-                        <input onkeydown="filterMeals(); renderMealsIfNoInput();" id="search" type="text" required placeholder="Search for a meal..."></input>
+                        <input onkeyup="filterMeals(); renderMealsIfNoInput();" id="search" type="text" required placeholder="Search for a meal..."></input>
                     </form>
                     <div class="navLinks">
                         <a class="orangeBold" href="#category0">Beliebte Gerichte</a>
