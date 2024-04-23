@@ -697,24 +697,24 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
    }
 
    .basketCount {
-    font-size: 16px;
+    font-size: 12px;
     background-color: rgb(205, 33, 33);
     color: white;
     position: absolute;
     border: 2px solid white;
-    top: 0;
+    top: 21px;
     right: 0;
-    border-radius: 200px;
+    border-radius: 50%;
     padding: 2px;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: center;
     font-weight: 600;
     margin-right: -8px;
-    min-width: 24px;
-    min-height: 24px;
+    width: 24px;
+    height: 24px;
     z-index: 2;
+    font-family: 'circular';
    }
 
    #basketFiller {
