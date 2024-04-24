@@ -118,21 +118,19 @@ function filterMeals() {
 
   for (let i = 0; i < menus.length; i++) {
     let menu = menus[i];
-    let category = document.getElementById(`category${i}`);
-    let categoryImg = document.getElementById(`categoryImg${i}`);
+    let categoryContainer = document.getElementById(`categoryContainer${i}`);
 
     for (let m = 0; m < menu['meals'].length; m++) {
       let mealName = menu['meals'][m].toLowerCase();
       let mealContainerId = `meal_${i}_${m}`;
       let mealContainer = document.getElementById(mealContainerId);
 
-        if (mealName.includes(search)) {
-          mealContainer.classList.add('d-block');
-        } else {
-          mealContainer.classList.add('d-none');
-          category.classList.add('d-none');
-          categoryImg.classList.add('d-none');
-        }
+      if (mealName.includes(search)) {
+        mealContainer.style.display = "block";
+      } else {
+        mealContainer.style.display = "none";
+        categoryContainer.style.display = "none"; 
+      }
     }
   }
 }
@@ -154,10 +152,12 @@ function renderMenus() {
   for (let i = 0; i < menus.length; i++) {
     let menu = menus[i];
     menuContent.innerHTML += /*html*/ `
-    <img id="categoryImg${i}" class="categoryPicture" src="${menu["image"]}" alt="Food Category Picture">
-    
-    <div class="categoryTitleContainer" id="category${i}">
-        <h3>${menu["category"]}</h3>
+    <div id="categoryContainer${i}">
+      <img id="categoryImg${i}" class="categoryPicture" src="${menu["image"]}" alt="Food Category Picture">
+      
+      <div class="categoryTitleContainer" id="category${i}">
+          <h3>${menu["category"]}</h3>
+      </div>
     </div>        
 
     <div id="mealContent${i}" class="mealContent">
